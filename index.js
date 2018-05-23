@@ -35,7 +35,10 @@ const WELCOME_INTENT =                'Default Welcome Intent';
     
     let city='kolkata';
     let date='23-05-2018';
-   
+   var object = {
+     callWeatherApi(city,date);
+   }
+   console.log("object: "+object);
     conv.ask(new SimpleResponse({
      speech:"hi welcome, this is defaultelcome intent",
      text:"hii dbfhfh"
@@ -43,19 +46,13 @@ const WELCOME_INTENT =                'Default Welcome Intent';
   
     // Call the weather API
     callWeatherApi(city, date).then((output) => {
-     // res.json({ 'fulfillmentText': output }); // Return the results of the weather API to Dialogflow
-      conv.ask(new SimpleResponse({
-       speech:"hi welcome, this is defaultelcome intent",
-       text:"hii dbfhfh"
-     }));
-
-    
+   
      console.log(output);
     }).catch(() => {
     //  res.json({ 'fulfillmentText': `I don't know the weather but I hope it's good!` });
     console.log('error');
     });
-  
+
 
   })
   
@@ -92,7 +89,7 @@ const WELCOME_INTENT =                'Default Welcome Intent';
   
           // Resolve the promise with the output text
          // console.log(output);
-          resolve(output);
+          return resolve(output);
         });
         res.on('error', (error) => {
           console.log(`Error calling the weather API: ${error}`)
