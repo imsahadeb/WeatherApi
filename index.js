@@ -69,6 +69,7 @@ const WELCOME_INTENT =                'Default Welcome Intent';
         res.on('end', () => {
           // After all the data has been received parse the JSON for desired data
           let response = JSON.parse(body);
+          console.log("Response....................:"+response);
           let forecast = response['data']['weather'][0];
           let location = response['data']['request'][0];
           let conditions = response['data']['current_condition'][0];
