@@ -83,7 +83,7 @@ const WELCOME_INTENT =                'Default Welcome Intent';
           ${forecast['date']}.`;
   
           // Resolve the promise with the output text
-          console.log(output);
+         // console.log(output);
           resolve(output);
         });
         res.on('error', (error) => {
