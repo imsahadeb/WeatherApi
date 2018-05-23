@@ -36,7 +36,7 @@ const WELCOME_INTENT =                'Default Welcome Intent';
     let city='kolkata';
     let date='23-05-2018';
    var object = {
-     callWeatherApi(city,date);
+     callWeatherApi(city,date)
    }
    console.log("object: "+object);
     conv.ask(new SimpleResponse({
