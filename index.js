@@ -32,16 +32,17 @@ const WELCOME_INTENT =                'Default Welcome Intent';
 
   const app = dialogflow({debug:true});
   app.intent('Default Welcome Intent',(conv)=>{
-    conv.ask(new SimpleResponse({
-      speech:"hi welcome, this is defaultelcome intent",
-      text:"hii dbfhfh"
-    }));
+    
     let city='kolkata';
     let date='23-05-2018';
   
     // Call the weather API
     callWeatherApi(city, date).then((output) => {
      // res.json({ 'fulfillmentText': output }); // Return the results of the weather API to Dialogflow
+     conv.ask(new SimpleResponse({
+      speech:"hi welcome, this is defaultelcome intent",
+      text:"hii dbfhfh"
+    }));
      console.log(output);
     }).catch(() => {
     //  res.json({ 'fulfillmentText': `I don't know the weather but I hope it's good!` });
@@ -69,7 +70,7 @@ const WELCOME_INTENT =                'Default Welcome Intent';
         res.on('end', () => {
           // After all the data has been received parse the JSON for desired data
           let response = JSON.parse(body);
-          console.log("Response....................:"+response);
+        //  console.log("Response....................:"+response);
           let forecast = response['data']['weather'][0];
           let location = response['data']['request'][0];
           let conditions = response['data']['current_condition'][0];
